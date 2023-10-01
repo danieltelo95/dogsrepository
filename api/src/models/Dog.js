@@ -34,6 +34,14 @@ module.exports = (sequelize) => {
     life_span: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    temperament: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    temperamentPk: {
+      type: DataTypes.TEXT,
+      allowNull: true
     }
 
   });
