@@ -1,12 +1,15 @@
+const express = require('express')
+const router = express.Router();
 const { getBreed } = require('../controllers/getBreed')
+
 
 const getBreedHandler = async (req, res) => {
 
-    const { id } = req.params;
-
-    const source = isNaN(id)? "api" : "database"
-
     try {
+        const { id } = req.params;
+        
+        const source = isNaN(Number(id))? "database" : "api"
+
         const response = await getBreed(id, source)
         res.status(200).json(response)
     } catch (error) {

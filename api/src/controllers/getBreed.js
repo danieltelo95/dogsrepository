@@ -1,13 +1,30 @@
 const axios = require('axios')
-const Dogs = require('../db')
+const { Dogs } = require('../db')
 const URL = 'https://api.thedogapi.com/v1/breeds'
+const apiKey = process.env.API_KEY
+
 
 const getBreed = async (id, source) =>  {
 
-    const dogBreed = source === "api"? (await axios.get(`${URL}?api_key=${API_KEY}`)).data
-        : await Dogs.findByPk(id)
-    
-    return dogBreed;
+    if(source === "api"){
+        const { data } = await axios.get(`${URL}/${id}?api_key=${apiKey}`)
+        const dogBreedDetail = {
+            id: data.id,
+            name: data.name,
+            weight: data.weight.metric,
+            height: data.height.metric,
+            breedgroup: data.breed_group,
+            lifespan: data.life_span,
+            origin: data.origin,
+            temperament: data?.temperament,            
+        }
+        
+        return dogBreedDetail;
+        
+    } else if(source === "database"){
+        const dbBreedsDogs = await Dogs.findByPK(id)
+        return dbBreedsDogs;
+    }
 }
 
 module.exports = {
