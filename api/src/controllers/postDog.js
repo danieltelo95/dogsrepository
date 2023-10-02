@@ -1,5 +1,4 @@
 const { Dog, Temper } = require('../db')
-const { Op } = require('sequelize');
 
 
 const postDog = async (name, image, height, weight, life_span, temperament) => {    
@@ -26,7 +25,6 @@ const postDog = async (name, image, height, weight, life_span, temperament) => {
         return newDog;
         
     } catch (error) {
-        console.error('Error creating new dog:', error);
         res.status(500).json({ error: 'No se creó el nuevo perro' });
     }
 }
