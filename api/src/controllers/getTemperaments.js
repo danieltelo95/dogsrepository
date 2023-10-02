@@ -29,8 +29,9 @@ const getTemperaments = async () => {
           name: JSON.stringify(temperament),
         }))
       );
-   
-    return singleTemper
+      const savedTemperaments = await Temper.findAll();
+  
+      return savedTemperaments.map((temperament) => JSON.parse(temperament.name));
 }
 
 module.exports = {
