@@ -16,7 +16,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
 
-    reference_image_id: {
+    image: {
       type: DataTypes.STRING,
       allowNull: false
     },
