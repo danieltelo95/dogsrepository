@@ -3,7 +3,6 @@ const { Dog } = require('../db')
 const deleteDog = async (req, res) => {
 
     const { id } = req.params
-    console.log(id);
     try {
         const dog = await Dog.findByPk(id);
         if(!dog){
@@ -15,8 +14,7 @@ const deleteDog = async (req, res) => {
             }
         })
         const allDogs = await Dog.findAll()
-        res.status(200).json(allDogs)
-        console.log(allDogs);
+        res.status(200).json(`El perro con id: ${id} fue correctamente eliminado`)
     } catch (error) {
         res.status(500).json({error:error.message})        
     }
