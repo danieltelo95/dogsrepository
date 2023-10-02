@@ -6,9 +6,8 @@ const postDogHandler = async (req, res) => {
     console.log("temperament: ", temperament);
 
     try {
-        // if(![name, height, weight, life_span, temperament].
-        //     every(Boolean)) return res.status(401).send("Faltan datos")
-        //     console.log(temperament);
+        if(![name, height, weight, life_span, temperament].
+            every(Boolean)) return res.status(401).send("Faltan datos")
 
         const newDogInfo = await postDog(
             name, 
