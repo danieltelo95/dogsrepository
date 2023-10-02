@@ -3,7 +3,6 @@ const { postDog } = require('../controllers/postDog')
 const postDogHandler = async (req, res) => {
 
     const { name, image, height, weight, life_span, temperament } = req.body
-    console.log("temperament: ", temperament);
 
     try {
         if(![name, height, weight, life_span, temperament].
