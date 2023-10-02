@@ -2,14 +2,7 @@ const { Dog, Temper } = require('../db')
 const { Op } = require('sequelize');
 
 
-const postDog = async (name, image, height, weight, life_span, temperament) => {
-    
-    // console.log("name: ", name);
-    // console.log("height: ", height);
-    // console.log("weight: ", weight);
-    // console.log("lifespan: ", life_span);
-    // console.log("temperament: ", temperament);
-    // console.log("image: ", image);
+const postDog = async (name, image, height, weight, life_span, temperament) => {    
 
     try {               
         const newDog = await Dog.create({               
