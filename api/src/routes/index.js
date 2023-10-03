@@ -6,6 +6,7 @@ const { getBreedByNameHandler } = require('../handlers/getBreedByNameHandler');
 const { postDogHandler } = require('../handlers/postDogHandler');
 const { getTemperamentsHandler } = require('../handlers/getTemperamentsHandler');
 const { deleteDog } = require('../controllers/deleteDog');
+const { updateDog } = require('../controllers/updateDog');
 
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
@@ -26,5 +27,7 @@ router.post('/dogs', postDogHandler)
 router.get('/temperaments', getTemperamentsHandler)
 
 router.delete('/dogs/:id', deleteDog)
+
+router.put('/dogs/update', updateDog)
 
 module.exports = router;

@@ -12,8 +12,6 @@ const getBreedByName = async (name) => {
   const apiResponse = await axios.get(`${URL}/search?q=${name}`);
   const apiResults = apiResponse.data;
 
-
-
   const dbBreeds = await Dog.findAll({
     where: {
       name: {
