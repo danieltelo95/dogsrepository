@@ -18,7 +18,10 @@ const getDogs = async (_req, res) =>  {
                 bred_for: dog.bred_for,
                 life_span: dog.life_span,
                 temperament: dog.temperament,
-                origin: dog.origin,                
+                origin: dog.origin,     
+                weight: dog.weight.metric,
+                height: dog.height.metric,  
+                image: dog.image.url         
             }
         });
         
