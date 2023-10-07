@@ -1,10 +1,14 @@
-function Card({id, name, image, height, weight, life_span, temperament}) {
+import './card.styles.css'
+
+function Card({dog}) {
+
+    const {image, name, temperament, weight} = dog
 
     return (
-        <div>
-            <img src={image} alt="imagen"></img>
-            <h2>Nombre: {name}</h2>
-
+        <div className= 'card-container'>
+          <img src = {image} alt={name} className='card-image'/>
+          <p>{temperament}</p>
+          <p>{weight}</p>
         </div>
     )
 
