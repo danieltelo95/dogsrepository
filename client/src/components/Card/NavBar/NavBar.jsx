@@ -1,14 +1,17 @@
-import SearchBar from "../SearchBar/SearchBar";
 
-const Nav = () => {
+const Navbar = ({handleChange, handleSubmit}) => {
 
     return(
         <div>
-            <SearchBar onSearch={onSearch}/>
-            
+            <form onChange={(e) => handleChange(e)}>
+                <input placeholder="Search" type="search"/>
+                <button type="submit" onClick={handleSubmit}> 
+                    Search 
+                </button>
+            </form>
         </div>
     )
 
 }
 
-export default Nav;
+export default Navbar;

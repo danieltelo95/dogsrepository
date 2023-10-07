@@ -17,3 +17,17 @@ export const getDogs = () => {
         }
     }
 }
+
+export const getByName = (name) => {
+    return async(dispatch) => {
+        try {
+            const { data } = await axios.get(`${URL}/name?name=${name}`)
+            return dispatch({
+                type: GET_BY_NAME,
+                payload:data
+            })
+        } catch (error) {
+            console.error('Error: no se encuentra el nombre')
+        }
+    }
+}

@@ -2,6 +2,7 @@ import { GET_DOGS, GET_DETAIL, GET_BY_NAME, ORDER, FILTER_TEMP, CREATE, ADD_FAV,
 
 const initialState = {
     dogs:[],
+    dogsCopy:[],
     myFavorites: [],
     allDogsFavorites: []
 }
@@ -11,12 +12,19 @@ const reducer = (state= initialState, {type, payload}) => {
         case GET_DOGS:
             return {
                 ...state,
+                dogs: payload,
+                dogsCopy: payload
+            }
+            
+        case GET_BY_NAME:
+            return {
+                ...state,
                 dogs: payload
             }
             
         default:
             return{
-                ...state
+                ...state,
             }
     }
 }
