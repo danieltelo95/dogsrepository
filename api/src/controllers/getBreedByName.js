@@ -9,25 +9,30 @@ const getBreedByName = async (name) => {
 
   if (!lowerCaseName) throw Error('Por favor ingrese un nombre válido');
 
-  const apiResponse = await axios.get(`${URL}/search?q=${name}&${apiKey}`);
-  const apiResults = apiResponse.data;
-  const breedId = apiResults[0].id;
-  const breedDetailResponse = await axios.get(`${URL}/${breedId}?api_key=${apiKey}`);
-  const breedDetail = breedDetailResponse.data  
-  const imageUrl = `https://cdn2.thedogapi.com/images/${breedDetail.reference_image_id}.jpg`
+  let apiResponse = await axios.get(`${URL}/search?q=${name}&api_key=${apiKey}`);
+  let apiResults = apiResponse.data;
 
-  const dogsApi = apiResults.map((dog) => {
+  let dogImages = await Promise.all(apiResults.map(async (e) => {
+    let imageId = e?.reference_image_id;
+    if (imageId) {
+      const imageResponse = await axios.get(`https://api.thedogapi.com/v1/images/${imageId}`);
+      return imageResponse.data.url;
+    }
+    return null
+  }));
+
+  console.log(dogImages);
+
+  const dogsApi = apiResults.map((dog, index) => {
     return {
         id: dog.id,
-        name: dog.name,
-        breed: dog.breed_group,
-        bred_for: dog.bred_for,
-        life_span: dog.life_span,
+        name: dog.name,        
         temperament: dog.temperament,
         origin: dog.origin,     
         weight: dog.weight.metric,
-        height: dog.height.metric,  
-        image: imageUrl
+        height: dog.height.metric, 
+        image: dogImages[index]
+        
     }
 })
     const dbBreeds = await Dog.findAll({
