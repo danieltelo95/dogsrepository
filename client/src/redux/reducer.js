@@ -28,7 +28,20 @@ const reducer = (state= initialState, {type, payload}) => {
                 ...state,
                 temperaments: payload
             }
-            
+        case FILTER_TEMP:
+            if(payload === 'All'){
+                return{
+                    ...state, 
+                }                
+            } else {
+                let filteredDogs = state.dogsCopy.filter((dog) =>
+                    dog?.temperament?.includes(payload)
+                )
+                return {
+                    ...state,
+                    dogs:filteredDogs
+                }
+            }
         default:
             return{
                 ...state,

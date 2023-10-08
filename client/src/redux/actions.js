@@ -1,4 +1,4 @@
-import { GET_DOGS, GET_DETAIL, GET_BY_NAME, ORDER, FILTER_TEMP, GET_TEMP, CREATE, ADD_FAV, DELETE_FAV, FILTER_ORIGIN, ALL_TEMPS } from "./actions-type";
+import { GET_DOGS, GET_DETAIL, GET_BY_NAME, ORDER, FILTER_TEMP, FILTER_ORIGIN, ALL_TEMPS } from "./actions-type";
 import axios from 'axios'
 
 const URL = 'http://localhost:3001'
@@ -43,5 +43,17 @@ export const allTemps = () => {
         } catch (error) {
             console.error('Error al cargar los temperamentos')
         }
+    }
+}
+
+export const filterTemp = async (dispatch) => {
+    try {
+        const { data } = await axios.get(`${URL}/temperaments`)
+        return dispatch({
+            type: FILTER_TEMP,
+            payload: data
+        })
+    } catch (error) {
+        console.error('Error al cargar los temperamentos')
     }
 }
