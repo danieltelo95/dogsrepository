@@ -7,18 +7,30 @@ const apiKey = process.env.API_KEY
 const getBreed = async (id, source) =>  {
 
     if(source === "api"){
-        const { data } = await axios.get(`${URL}/${id}?api_key=${apiKey}`)
-        console.log(Dog);
+        const apiResponse = await axios.get(`${URL}/${id}?api_key=${apiKey}`)
+        const apiResults = apiResponse.data
+        let dogImage = [apiResults]
+
+        let imageOfTheDog = await Promise.all(dogImage.map(async (e) => {
+            let imageId = e?.reference_image_id;
+            if (imageId) {
+              const imageResponse = await axios.get(`https://api.thedogapi.com/v1/images/${imageId}`);
+              return imageResponse.data.url;
+            }
+            return null
+          }));
+        
 
         const dogBreedDetail = {
-            id: data.id,
-            name: data.name,
-            weight: data.weight.metric,
-            height: data.height.metric,
-            breedgroup: data.breed_group,
-            lifespan: data.life_span,
-            origin: data.origin,
-            temperament: data?.temperament,            
+            id: apiResults.id,
+            name: apiResults.name,
+            weight: apiResults.weight.metric,
+            height: apiResults.height.metric,
+            breedgroup: apiResults.breed_group,
+            lifespan: apiResults.life_span,
+            origin: apiResults.origin,
+            temperament: apiResults?.temperament,     
+            image: imageOfTheDog
         }
         
         return dogBreedDetail;
