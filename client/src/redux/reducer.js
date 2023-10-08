@@ -56,10 +56,10 @@ const reducer = (state= initialState, {type, payload}) => {
                         const pesoA = parseInt(a.weight.split(' - ')[0])
                         const pesoB = parseInt(b.weight.split(' - ')[0])
 
-                        if(pesoA < pesoB){
+                        if(pesoA > pesoB){
                             return -1
                         }
-                        if(pesoA > pesoB){
+                        if(pesoA < pesoB){
                             return 1
                         }
                         return 0 
@@ -70,10 +70,10 @@ const reducer = (state= initialState, {type, payload}) => {
                         const pesoA = parseInt(a.weight.split(' - ')[0])
                         const pesoB = parseInt(b.weight.split(' - ')[0])
 
-                        if(pesoA > pesoB){
+                        if(pesoA < pesoB){
                             return -1
                         }
-                        if(pesoA < pesoB){
+                        if(pesoA > pesoB){
                             return 1
                         }
                         return 0 
