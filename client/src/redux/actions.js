@@ -46,14 +46,21 @@ export const allTemps = () => {
     }
 }
 
-export const filterTemp = async (dispatch) => {
+export const filterTemp = async (temperament) => {
     try {
         const { data } = await axios.get(`${URL}/temperaments`)
-        return dispatch({
+        return ({
             type: FILTER_TEMP,
             payload: data
         })
     } catch (error) {
         console.error('Error al cargar los temperamentos')
     }
+}
+
+export const order = (order) =>{
+    return ({
+        type: ORDER,
+        payload: order
+    })
 }

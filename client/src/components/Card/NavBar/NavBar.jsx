@@ -1,4 +1,4 @@
-import { filterTemp } from "../../../redux/actions";
+import { filterTemp, order } from "../../../redux/actions";
 import { useDispatch, useSelector } from 'react-redux'
 
 
@@ -11,12 +11,16 @@ const Navbar = ({handleChange, handleSubmit}) => {
         dispatch(filterTemp(event.target.value))
     }
 
+    const handleOrder = (event) => {
+        dispatch(order(event.target.value))
+    }
+
     return(
         <>
             <div>
-                <select>
+                <select name="order" value={order} onChange={handleOrder} >
                     <option value='A'> Ascendente</option>
-                    <option value='D'>Descendente</option>            
+                    <option value='D'> Descendente</option>            
                     <option value='maxWeight'>Más pesados</option>
                     <option value='minWeight'>Menos pesados</option>
                 </select>

@@ -4,8 +4,6 @@ const initialState = {
     dogs:[],
     dogsCopy:[],
     temperaments: [],
-    myFavorites: [],
-    allDogsFavorites: []
 }
 
 const reducer = (state= initialState, {type, payload}) => {
@@ -42,6 +40,54 @@ const reducer = (state= initialState, {type, payload}) => {
                     dogs:filteredDogs
                 }
             }
+        
+        case ORDER:
+            let orderDogs = [...state.dogsCopy]
+
+            switch(payload){
+                case "A":
+                    orderDogs.sort((a,b) => a.name.localeCompare(b.name))
+                    break;
+                case "D":
+                    orderDogs.sort((a,b) => b.name.localeCompare(a.name))
+                    break;
+                case "maxWeight":
+                    orderDogs.sort((a,b)=>{
+                        const pesoA = parseInt(a.weight.split(' - ')[0])
+                        const pesoB = parseInt(b.weight.split(' - ')[0])
+
+                        if(pesoA < pesoB){
+                            return -1
+                        }
+                        if(pesoA > pesoB){
+                            return 1
+                        }
+                        return 0 
+                    })
+                    break;
+                case "minWeight":
+                    orderDogs.sort((a,b)=>{
+                        const pesoA = parseInt(a.weight.split(' - ')[0])
+                        const pesoB = parseInt(b.weight.split(' - ')[0])
+
+                        if(pesoA > pesoB){
+                            return -1
+                        }
+                        if(pesoA < pesoB){
+                            return 1
+                        }
+                        return 0 
+                    })
+                    break;
+                default:
+                    break;
+            }
+
+            return{
+                ...state,
+                dogs:orderDogs
+            }
+
         default:
             return{
                 ...state,
