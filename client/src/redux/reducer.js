@@ -1,3 +1,4 @@
+import { order } from "./actions";
 import { GET_DOGS, GET_DETAIL, GET_BY_NAME, ALL_TEMPS, ORDER, FILTER_TEMP, CREATE, ADD_FAV, DELETE_FAV, FILTER_ORIGIN } from "./actions-type";
 
 const initialState = {
@@ -48,9 +49,11 @@ const reducer = (state= initialState, {type, payload}) => {
                 case "A":
                     orderDogs.sort((a,b) => a.name.localeCompare(b.name))
                     break;
+
                 case "D":
                     orderDogs.sort((a,b) => b.name.localeCompare(a.name))
                     break;
+
                 case "maxWeight":
                     orderDogs.sort((a,b)=>{
                         const pesoA = parseInt(a.weight.split(' - ')[0])
@@ -65,6 +68,7 @@ const reducer = (state= initialState, {type, payload}) => {
                         return 0 
                     })
                     break;
+                    
                 case "minWeight":
                     orderDogs.sort((a,b)=>{
                         const pesoA = parseInt(a.weight.split(' - ')[0])
@@ -86,6 +90,25 @@ const reducer = (state= initialState, {type, payload}) => {
             return{
                 ...state,
                 dogs:orderDogs
+            }
+        case FILTER_ORIGIN:
+            if(payload === 'All'){
+                return{
+                    ...state,
+                    dogs: state.dogsCopy
+                }
+            }else{
+                let originFilter = []
+                if(payload === 'API') originFilter = state.dogsCopy.filter((dog) =>
+                    typeof(dog?.id) === 'number'
+                )
+                else if(payload === 'BDD') originFilter = state.dogsCopy.filter((dog) => 
+                    typeof(dog?.id) === 'string'
+                )
+                return{
+                    ...state,
+                    dogs: originFilter
+                }
             }
 
         default:

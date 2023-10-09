@@ -64,3 +64,11 @@ export const order = (order) =>{
         payload: order
     })
 }
+
+export const origin = (source) => {
+    return ({
+        type: FILTER_ORIGIN,
+        payload: source
+    })
+
+}

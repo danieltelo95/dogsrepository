@@ -1,4 +1,4 @@
-import { filterTemp, order } from "../../../redux/actions";
+import { filterTemp, order, origin } from "../../../redux/actions";
 import { useDispatch, useSelector } from 'react-redux'
 
 
@@ -15,6 +15,10 @@ const Navbar = ({handleChange, handleSubmit}) => {
         dispatch(order(event.target.value))
     }
 
+    const handleOrigin = (event) => {
+        dispatch(origin(event.target.value))
+    }
+
     return(
         <>
             <div>
@@ -24,7 +28,8 @@ const Navbar = ({handleChange, handleSubmit}) => {
                     <option value='maxWeight'>Más pesados</option>
                     <option value='minWeight'>Menos pesados</option>
                 </select>
-                <select>
+                <select name="origin" value={origin} onChange={handleOrigin}>
+                    <option value='All'>All</option>
                     <option value='BDD'>Base de Datos</option>
                     <option value='API'>API</option>
                 </select>
