@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { filterTemp, order, origin } from "../../../redux/actions";
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -36,13 +37,19 @@ const Navbar = ({handleChange, handleSubmit}) => {
                 <select name="filterTemp" value={filterTemp} onChange={handleFilterByTemp}>
                     <option value='All'>All</option>
                 </select>
+                <button type="submit" onClick={handleSubmit}> 
+                        Search 
+                </button>
             </div>
             <div>
                 <form onChange={(e) => handleChange(e)}>
                     <input placeholder="Search" type="search"/>
-                    <button type="submit" onClick={handleSubmit}> 
-                        Search 
+                    <Link to={'/create'}>
+                    <button > 
+                        Create 
                     </button>
+                    </Link>
+
                 </form>
             </div>
         </>
