@@ -39,18 +39,24 @@ const Navbar = ({handleChange, handleSubmit}) => {
                 </select>
                 <form onChange={(e) => handleChange(e)}>
                     <input placeholder="Search" type="search"/>
-                    <Link to={'/create'}>
-                    <button > 
-                        Create 
-                    </button>
-                    </Link>
-
+                        <button type="submit" onClick={handleSubmit}> 
+                                Search 
+                        </button>
                 </form>
-            </div>
-                <button type="submit" onClick={handleSubmit}> 
-                        Search 
-                </button>
-            <div>
+
+                <div>            
+                    <Link to={'/create'}>
+                        <button > 
+                            Create 
+                        </button>
+                    </Link>
+                    <form>
+                        <input placeholder="Filter by temperament"></input>
+                        <button type="submit" onClick={handleSubmit}> 
+                                Filter 
+                        </button>
+                    </form>
+                </div>
             </div>
         </>
     )
