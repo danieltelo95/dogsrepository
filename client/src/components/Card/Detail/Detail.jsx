@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useSelector } from "react-redux"
+import './Detail.styles.css'
 
 const Detail = () => {
     const { id } = useParams()
@@ -9,14 +10,14 @@ const Detail = () => {
 
    
     return (
-        <di>
-            <img src={dog.image} alt={dog.name}></img>
+        <div>
+            <img src={dog.image} alt={dog.name} className='card-image'></img>
             <p>Height: {dog.height}</p>
             <p>Weight: {dog.weight}</p>
             <p>Temperaments:{dog.temperament} </p>
             <p>Lifespan:{dog.life_span}</p>
             <p>Origin:{dog.origin} </p>
-        </di>
+        </div>
     )
 
 }
