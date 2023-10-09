@@ -37,11 +37,6 @@ const Navbar = ({handleChange, handleSubmit}) => {
                 <select name="filterTemp" value={filterTemp} onChange={handleFilterByTemp}>
                     <option value='All'>All</option>
                 </select>
-                <button type="submit" onClick={handleSubmit}> 
-                        Search 
-                </button>
-            </div>
-            <div>
                 <form onChange={(e) => handleChange(e)}>
                     <input placeholder="Search" type="search"/>
                     <Link to={'/create'}>
@@ -51,6 +46,11 @@ const Navbar = ({handleChange, handleSubmit}) => {
                     </Link>
 
                 </form>
+            </div>
+                <button type="submit" onClick={handleSubmit}> 
+                        Search 
+                </button>
+            <div>
             </div>
         </>
     )

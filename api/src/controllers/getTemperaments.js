@@ -13,23 +13,23 @@ const getTemperaments = async () => {
         }
     })
 
-    const singleTemper = temperaments.map((dog) => {
-        if(dog.temperament){
-            return {
-                temperament: dog.temperament.split(",").map((t) => 
-                    t.trim()
-                )
-            }
-        }
-        return dog
-    })
+    const filterTemperaments = temperaments.filter((dog) => 
+    dog.temperament).reduce((acc, dog) => {
+        const dogTemperaments = dog.temperament.split(",").
+        map((t) => t.trim())
+        acc.push(...dogTemperaments)
+        return acc
+    }, [])
+
+    const uniqueTemperament = [...new Set(filterTemperaments)];
 
     const dbTemperaments = await Temper.bulkCreate(
-        singleTemper.map((temperament) => ({
+        uniqueTemperament.map((temperament) => ({
           name: JSON.stringify(temperament),
         }))
       );
       const savedTemperaments = await Temper.findAll();
+     
   
       return savedTemperaments.map((temperament) => JSON.parse(temperament.name));
 }
