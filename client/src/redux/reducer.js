@@ -1,5 +1,4 @@
-import { order } from "./actions";
-import { GET_DOGS, GET_DETAIL, GET_BY_NAME, ALL_TEMPS, ORDER, FILTER_TEMP, CREATE, ADD_FAV, DELETE_FAV, FILTER_ORIGIN } from "./actions-type";
+import { GET_DOGS, GET_DETAIL, GET_BY_NAME, ALL_TEMPS, ORDER, FILTER_TEMP, FILTER_ORIGIN } from "./actions-type";
 
 const initialState = {
     dogs:[],
@@ -18,6 +17,12 @@ const reducer = (state= initialState, {type, payload}) => {
             
         case GET_BY_NAME:
             return {
+                ...state,
+                dogs: payload
+            }
+
+        case GET_DETAIL:
+            return{
                 ...state,
                 dogs: payload
             }

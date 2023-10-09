@@ -70,5 +70,21 @@ export const origin = (source) => {
         type: FILTER_ORIGIN,
         payload: source
     })
+}
 
+export const getDetail = (id) => {
+    return async(dispatch) => {
+        try {
+            console.log(`fetchin: ${id}`);
+            const { data } = await axios.get(`${URL}/dogs/${id}`)    
+            console.log(`data: ${data}`);
+        
+            return dispatch({
+                type: GET_DETAIL,
+                payload:data
+            })
+        } catch (error) {
+            console.error('Error: no se encuentra el nombre')
+        }
+    }
 }

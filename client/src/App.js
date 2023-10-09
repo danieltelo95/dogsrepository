@@ -3,8 +3,8 @@ import './App.css';
 import HomeCards from './components/Card/Home/Homecards';
 import LandingPage from './components/Card/Landing/LandingPage';
 import FormCreate from './components/Card/Form/CreateForm';
+import Detail from './components/Card/Detail/Detail';
 
-const URL = 'http://localhost:3001/dogs'
 
 function App() { 
 
@@ -14,6 +14,7 @@ function App() {
       <Routes>
         <Route path='/home' element={<HomeCards/>} />  
         <Route path='/create' element={<FormCreate/>}/>
+        <Route path='/detail/:id' element={<Detail/>}/>
         <Route path='/' element={<LandingPage/>}/>
 
       </Routes>
