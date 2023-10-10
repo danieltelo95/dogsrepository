@@ -1,3 +1,10 @@
+.card {
+  background-image: url('../public/assets/background.jpg'); 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center; 
+  background-attachment: fixed;
+}
 .App {
   text-align: center;
 }

@@ -1,9 +1,9 @@
 .card-container {
     display: flex;
     flex-direction: column;
-    background-color: antiquewhite;
+    background-color: transparent;
     border: 1px solid;
-    border-radius: 5px;
+    border-radius: 5px;    
     padding: 25px;
     cursor: pointer;
     backface-visibility: hidden;
@@ -22,5 +22,5 @@
 
   .card-link {
     text-decoration: none; /* Remove underline */
-    color: #333; /* Set your desired text color */
+    color: white; /* Set your desired text color */
   }

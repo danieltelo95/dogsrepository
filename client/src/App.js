@@ -10,14 +10,16 @@ function App() {
 
   return (
     <div className="App">
-      <h1>The Dogs Webpage</h1>
-      <Routes>
-        <Route path='/home' element={<HomeCards/>} />  
-        <Route path='/create' element={<FormCreate/>}/>
-        <Route path='/detail/:id' element={<Detail/>}/>
-        <Route path='/' element={<LandingPage/>}/>
+      <div className='card'>
+        <h1>The Dogs Webpage</h1>
+        <Routes>
+          <Route path='/home' element={<HomeCards/>} />  
+          <Route path='/create' element={<FormCreate/>}/>
+          <Route path='/detail/:id' element={<Detail/>}/>
+          <Route path='/' element={<LandingPage/>}/>
 
-      </Routes>
+        </Routes>
+      </div>
     </div>
   );
 }
