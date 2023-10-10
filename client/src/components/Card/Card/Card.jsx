@@ -7,7 +7,7 @@ function Card({dog}) {
 
     return (
         <div className= 'card-container'>
-          <Link to={`/detail/${id}`}>
+          <Link className='card-link' to={`/detail/${id}`}>
           <img src = {image} alt={name} className='card-image'/>
           <h2>{name}</h2>
           <p>{temperament}</p>

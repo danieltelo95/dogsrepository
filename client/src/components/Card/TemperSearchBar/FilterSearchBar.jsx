@@ -30,7 +30,7 @@ function FilterByTemperament () {
                 value={searchQuery}
                 onChange={(e)=> setSearchQuery(e.target.value)}
             >
-                <option value=''> Select temperament</option>
+                <option value=''> All temperaments</option>
                 {allTemperaments.map((temperament)=>(
                     <option key={temperament} value={temperament}>
                         {temperament}

@@ -19,3 +19,8 @@
     width: 200px; 
     height: 150px; 
   }
+
+  .card-link {
+    text-decoration: none; /* Remove underline */
+    color: #333; /* Set your desired text color */
+  }
