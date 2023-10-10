@@ -1,11 +1,14 @@
 import FilterByTemperament from "../TemperSearchBar/FilterSearchBar";
-import { order, origin } from "../../../redux/actions";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
+import {origin, order} from '../../../redux/actions'
 
 
 const Navbar = ({handleChange, handleSubmit}) => {
     const dispatch = useDispatch();
+
+    const orderDogs = useSelector((state) => state.order)
+    const originDogs = useSelector((state) => state.origin)
 
     const handleOrder = (event) => {
         dispatch(order(event.target.value))
@@ -18,13 +21,13 @@ const Navbar = ({handleChange, handleSubmit}) => {
     return(
         <>
             <div>
-                <select name="order" value={order} onChange={handleOrder} >
+                <select name="order" value={orderDogs} onChange={handleOrder} >
                     <option value='A'> Ascendente</option>
                     <option value='D'> Descendente</option>            
                     <option value='maxWeight'>Más pesados</option>
                     <option value='minWeight'>Menos pesados</option>
                 </select>
-                <select name="origin" value={origin} onChange={handleOrigin}>
+                <select name="origin" value={originDogs} onChange={handleOrigin}>
                     <option value='All'>All</option>
                     <option value='BDD'>Base de Datos</option>
                     <option value='API'>API</option>
