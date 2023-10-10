@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <div className='card'>
-        <h1>The Dogs Webpage</h1>
+        <h1 className='title'>The Dogs Webpage</h1>
         <Routes>
           <Route path='/home' element={<HomeCards/>} />  
           <Route path='/create' element={<FormCreate/>}/>
