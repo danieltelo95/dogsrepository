@@ -21,7 +21,7 @@ const Navbar = ({handleChange, handleSubmit}) => {
 
     return(
         <>
-            <div>
+            <div className="navbar-container">
                 <select name="order" value={orderDogs} onChange={handleOrder} >
                     <option value='A'> Ascendente</option>
                     <option value='D'> Descendente</option>            

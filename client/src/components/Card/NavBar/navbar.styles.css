@@ -1,3 +1,10 @@
+.navbar-container {
+  display: flex;
+  align-items: center;
+  gap: 50px; /* Adjust the gap between elements */
+  padding: 15px; /* Add padding for spacing */
+  background-color: #f0f0f0; /* Change the background color */
+}
 .search-container {
     display: flex;
     align-items: center;
