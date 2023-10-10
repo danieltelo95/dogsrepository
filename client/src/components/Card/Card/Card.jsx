@@ -11,7 +11,7 @@ function Card({dog}) {
           <img src = {image} alt={name} className='card-image'/>
           <h2>{name}</h2>
           <p>{temperament}</p>
-          <p>{weight}</p>
+          <p>Weight: {weight}</p>
           </Link>
 
         </div>

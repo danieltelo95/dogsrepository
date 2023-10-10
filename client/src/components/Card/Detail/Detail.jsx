@@ -10,7 +10,7 @@ const Detail = () => {
 
    
     return (
-        <div>
+        <div className='detail-card'>
             <img src={dog.image} alt={dog.name} className='card-image'></img>
             <p>Height: {dog.height}</p>
             <p>Weight: {dog.weight}</p>
