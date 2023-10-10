@@ -13,12 +13,12 @@ function FilterByTemperament () {
         dispatch(allTemps())
     }, [dispatch])
 
-    useEffect(() => {
-        const filtered = allTemperaments.filter((temp) =>
-        temp.toLowerCase().includes(searchQuery.toLocaleLowerCase())
-        );
-        setFilteredTemperaments(filtered)
-    },[searchQuery, allTemperaments])
+    // useEffect(() => {
+    //     const filtered = allTemperaments.filter((temp) =>
+    //     temp.toLowerCase().includes(searchQuery.toLocaleLowerCase())
+    //     );
+    //     setFilteredTemperaments(filtered)
+    // },[searchQuery, allTemperaments])
 
     const handleFilterClick = () => {
         dispatch(filterTemp(searchQuery))
