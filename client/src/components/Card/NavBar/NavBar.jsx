@@ -2,6 +2,7 @@ import FilterByTemperament from "../TemperSearchBar/FilterSearchBar";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
 import {origin, order} from '../../../redux/actions'
+import './navbar.styles.css'
 
 
 const Navbar = ({handleChange, handleSubmit}) => {
@@ -32,13 +33,15 @@ const Navbar = ({handleChange, handleSubmit}) => {
                     <option value='BDD'>Base de Datos</option>
                     <option value='API'>API</option>
                 </select>
-                
-                <form onChange={(e) => handleChange(e)}>
-                    <input placeholder="Search" type="search"/>
-                        <button type="submit" onClick={handleSubmit}> 
-                                Search 
-                        </button>
-                </form>
+
+                <div className="search-container">
+                    <form onChange={(e) => handleChange(e)}>
+                        <input className="search-input" placeholder="Search..." type="search"/>
+                            <button className="search-button" type="submit" onClick={handleSubmit}> 
+                                    Search
+                            </button>
+                    </form>
+                </div>
 
                 <div>
                     <FilterByTemperament/>
