@@ -35,7 +35,7 @@ export const getByName = (name) => {
 export const allTemps = () => {
     return async(dispatch) => {
         try {
-           const { data } = await axios.get(`${URL}/temperaments`)
+           const { data } = await axios.get('http://localhost:3001/temperaments')
            return dispatch({
             type: ALL_TEMPS,
             payload: data
@@ -46,15 +46,12 @@ export const allTemps = () => {
     }
 }
 
-export const filterTemp = async (temperament) => {
-    try {
-        const { data } = await axios.get(`${URL}/temperaments`)
-        return ({
-            type: FILTER_TEMP,
-            payload: data
-        })
-    } catch (error) {
-        console.error('Error al cargar los temperamentos')
+export const filterTemp =  (temperament) => {
+    return (dispatch) => {
+        dispatch({
+        type: FILTER_TEMP,
+        payload: temperament
+    })
     }
 }
 

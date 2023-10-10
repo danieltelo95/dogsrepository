@@ -32,6 +32,7 @@ const reducer = (state= initialState, {type, payload}) => {
                 ...state,
                 temperaments: payload
             }
+
         case FILTER_TEMP:
             if(payload === 'All'){
                 return{

@@ -1,16 +1,11 @@
+import FilterByTemperament from "../TemperSearchBar/FilterSearchBar";
+import { order, origin } from "../../../redux/actions";
 import { Link } from "react-router-dom";
-import { filterTemp, order, origin } from "../../../redux/actions";
 import { useDispatch, useSelector } from 'react-redux'
 
 
 const Navbar = ({handleChange, handleSubmit}) => {
     const dispatch = useDispatch();
-    const temperament = useSelector((state) => state.temperaments)
-
-
-    const handleFilterByTemp = (event) => {
-        dispatch(filterTemp(event.target.value))
-    }
 
     const handleOrder = (event) => {
         dispatch(order(event.target.value))
@@ -34,9 +29,7 @@ const Navbar = ({handleChange, handleSubmit}) => {
                     <option value='BDD'>Base de Datos</option>
                     <option value='API'>API</option>
                 </select>
-                <select name="filterTemp" value={filterTemp} onChange={handleFilterByTemp}>
-                    <option value='All'>All</option>
-                </select>
+                
                 <form onChange={(e) => handleChange(e)}>
                     <input placeholder="Search" type="search"/>
                         <button type="submit" onClick={handleSubmit}> 
@@ -44,18 +37,17 @@ const Navbar = ({handleChange, handleSubmit}) => {
                         </button>
                 </form>
 
+                <div>
+                    <FilterByTemperament/>
+                </div>
+
                 <div>            
                     <Link to={'/create'}>
                         <button > 
                             Create 
                         </button>
                     </Link>
-                    <form>
-                        <input placeholder="Filter by temperament"></input>
-                        <button type="submit" onClick={handleSubmit}> 
-                                Filter 
-                        </button>
-                    </form>
+                    
                 </div>
             </div>
         </>
