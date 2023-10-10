@@ -31,7 +31,6 @@ export default function HomeCards(){
   return (
           
     <div> 
-      <h2>Quiero ver algo</h2>                       
       <Navbar handleChange={handleChange} handleSubmit={handleSubmit} />
       <hr></hr>
       <Cards allDogs = {dogs}></Cards>

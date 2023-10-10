@@ -49,7 +49,7 @@ const Navbar = ({handleChange, handleSubmit}) => {
 
                 <div>            
                     <Link to={'/create'}>
-                        <button > 
+                        <button className="minimalist-button"> 
                             Create 
                         </button>
                     </Link>
