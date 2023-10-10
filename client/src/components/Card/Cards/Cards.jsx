@@ -33,6 +33,7 @@ function Cards({allDogs}) {
                 dog={dog} />
             ))}
         </div>
+        <hr className="transparent-hr"></hr>
         <button onClick={()=>handlePage(currentPage - 1)} 
             disabled={currentPage === 1}
         >

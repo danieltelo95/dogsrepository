@@ -1,31 +1,31 @@
-import React from "react";
+// import React from "react";
 
-const Pagination = ({ dogsPerPage, totalDogs, currentPage, onPageChange }) => {
-  const pageNumbers = [];
+// const Pagination = ({ dogsPerPage, totalDogs, currentPage, onPageChange }) => {
+//   const pageNumbers = [];
 
-  for (let i = 1; i <= Math.ceil(totalDogs / dogsPerPage); i++) {
-    pageNumbers.push(i);
-  }
+//   for (let i = 1; i <= Math.ceil(totalDogs / dogsPerPage); i++) {
+//     pageNumbers.push(i);
+//   }
 
-  return (
-    <nav>
-      <ul className="pagination">
-        {pageNumbers.map((pageNumber) => (
-          <li key={pageNumber} className="page-item">
-            <a
-              href="#!"
-              className={`page-link ${
-                pageNumber === currentPage ? "active" : ""
-              }`}
-              onClick={() => onPageChange(pageNumber)}
-            >
-              {pageNumber}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  );
-};
+//   return (
+//     <nav>
+//       <ul className="pagination">
+//         {pageNumbers.map((pageNumber) => (
+//           <li key={pageNumber} className="page-item">
+//             <a
+//               href="#!"
+//               className={`page-link ${
+//                 pageNumber === currentPage ? "active" : ""
+//               }`}
+//               onClick={() => onPageChange(pageNumber)}
+//             >
+//               {pageNumber}
+//             </a>
+//           </li>
+//         ))}
+//       </ul>
+//     </nav>
+//   );
+// };
 
-export default Pagination;
+// export default Pagination;

@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { getByName, getDogs } from "../../../redux/actions";
 
+import './homecards.styles.css'
+
 export default function HomeCards(){
 
   const dispatch = useDispatch()
@@ -32,7 +34,7 @@ export default function HomeCards(){
           
     <div> 
       <Navbar handleChange={handleChange} handleSubmit={handleSubmit} />
-      <hr></hr>
+      <hr className='transparent-hr'></hr>
       <Cards allDogs = {dogs}></Cards>
                     
     </div>

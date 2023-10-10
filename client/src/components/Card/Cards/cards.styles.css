@@ -5,3 +5,10 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
 }
+
+.transparent-hr {
+    border: none;
+    height: 1px; 
+    background-color: transparent;
+    margin: 10px 0; 
+  }
