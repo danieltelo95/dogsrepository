@@ -1,0 +1,54 @@
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.01); /* Adjust the opacity (last value) for the glass effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+}
+
+.form-title {
+    color: #FADCF5;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-input:focus {
+    border-color: #4065DB;
+    outline: none;
+}
+
+.form-label {
+    color: #FADCF5;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.form-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.form-button:hover {
+    background-color: #333;
+}

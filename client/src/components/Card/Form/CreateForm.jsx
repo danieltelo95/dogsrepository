@@ -1,6 +1,8 @@
 import { useState } from "react"
 import axios from "axios"
 
+import './form.styles.css'
+
 const FormCreate = () => {
     const [postDog, setPostDog] = useState(false)
     const [create, setCreate] = useState(true)
@@ -64,45 +66,46 @@ const FormCreate = () => {
         <>
         {postDog &&
             <div>
-                <h2>Perro creado con éxito</h2>
+                <h2>Dog breed created succesfully</h2>
             </div>
         }
             {create &&
-                <div>
+                <div className="form-container">
                     <form onSubmit={handleSubmit} >
                         <div>
-                            <label>Name:</label>
-                            <input name="name" value={input.name} onChange={handleChange}/>                
+                            <h2 className="form-title">Create a new dog breed</h2>
+                            <label className="form-label">Name:</label>
+                            <input className="form-input" name="name" value={input.name} onChange={handleChange}/>                
                         </div>
                         <div>
-                            <label>Image:</label>
-                            <input name="image" value={input.image} onChange={handleChange}/>                
+                            <label className="form-label">Image:</label>
+                            <input className="form-input" name="image" value={input.image} onChange={handleChange}/>                
                         </div>
                         <div>
-                            <label>Minimun Height:</label>
-                            <input name="minheight" value={input.minheight} onChange={handleChange}/>                
+                            <label className="form-label">Minimun Height:</label>
+                            <input className="form-input" name="minheight" value={input.minheight} onChange={handleChange}/>                
                         </div>
                         <div>
-                            <label>Maximun Height:</label>
-                            <input name="maxheight" value={input.maxheight} onChange={handleChange}/>                
+                            <label className="form-label">Maximun Height:</label>
+                            <input className="form-input" name="maxheight" value={input.maxheight} onChange={handleChange}/>                
                         </div>
                         <div>
-                            <label>Minimun Weight:</label>
-                            <input name="minweight" value={input.minweight} onChange={handleChange}/>                
+                            <label className="form-label">Minimun Weight:</label>
+                            <input className="form-input" name="minweight" value={input.minweight} onChange={handleChange}/>                
                         </div>
                         <div>
-                            <label>Maximun Weight:</label>
-                            <input name="maxweight" value={input.maxweight} onChange={handleChange}/>                
+                            <label className="form-label">Maximun Weight:</label>
+                            <input className="form-input" name="maxweight" value={input.maxweight} onChange={handleChange}/>                
                         </div>
                         <div>
-                            <label>Life span:</label>
-                            <input name="life_span" value={input.life_span} onChange={handleChange}/>                
+                            <label className="form-label">Life span:</label>
+                            <input className="form-input" name="life_span" value={input.life_span} onChange={handleChange}/>                
                         </div>
                         <div>
-                            <label>Temperament:</label>
-                            <input name="temperament" value={input.temperament} onChange={handleChange}/>                
+                            <label className="form-label">Temperament:</label>
+                            <input className="form-input" name="temperament" value={input.temperament} onChange={handleChange}/>                
                         </div>
-                        <button type="submit">Submit</button>
+                        <button className="form-button" type="submit">Submit</button>
                     </form>
                 </div>
             }
