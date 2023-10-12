@@ -2,6 +2,7 @@ const { Dog } = require('../db')
 
 const deleteDog = async (req, res) => {
 
+    //traigo el id por params
     const { id } = req.params
     try {
         const dog = await Dog.findByPk(id);

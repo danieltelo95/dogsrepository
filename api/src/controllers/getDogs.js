@@ -5,11 +5,13 @@ const apiKey = process.env.API_KEY
 
 const getDogs = async (_req, res) =>  {
 
+    //inicializo un arreglo vacío donde voy a devolver los perros
     let allDogs = [];
 
     try {
+        //pedido a la api haciendo destructuring
         const { data } = await axios.get(`${URL}?api_key=${apiKey}`)
-
+        //mapeo la respuesta
         const dogsApi = data.map((dog) => {
             return {
                 id: dog.id,
@@ -24,9 +26,9 @@ const getDogs = async (_req, res) =>  {
                 image: dog.image.url         
             }
         });
-        
+        //traigo los perros de la db
         const dogsDB = await Dog.findAll()
-
+        //concateno los perros de api y db y acomodo en orden ascendente por nombre
         allDogs = [...dogsDB, ...dogsApi].sort((a,b) => 
         a.name.localeCompare(b.name))
         

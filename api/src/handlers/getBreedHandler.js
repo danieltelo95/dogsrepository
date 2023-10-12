@@ -5,7 +5,7 @@ const getBreedHandler = async (req, res) => {
 
     try {
         const { id } = req.params;
-        
+        //identificar de dónde viene el id
         const source = isNaN(Number(id))? "database" : "api"
 
         const response = await getBreed(id, source)

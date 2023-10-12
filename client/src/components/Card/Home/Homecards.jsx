@@ -10,15 +10,16 @@ import './homecards.styles.css'
 export default function HomeCards(){
 
   const dispatch = useDispatch()
+  //obtener el estado de los perros desde la store
   const dogs = useSelector((state) => state.dogs)
   const [searchString, setSearchString] = useState('')
 
-  //Dispatch para traer a todos los perros
+  //Dispatch para traer a todos los perros al montar el componente
   useEffect(() => {
     dispatch(getDogs())
   },[dispatch])
 
-  //Evitar que la página se refresque cada que se hace la búsqueda
+  //Evitar que la página se refresque cada que se hace la búsqueda y manejar los cambios en el input
   function handleChange(e) {
     e.preventDefault();
     setSearchString(e.target.value)
@@ -37,8 +38,6 @@ export default function HomeCards(){
       <hr className='transparent-hr'></hr>
       <Cards allDogs = {dogs}></Cards>
                     
-    </div>
-                
-              
+    </div>                              
   );
 }

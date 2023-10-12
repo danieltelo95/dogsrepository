@@ -12,7 +12,7 @@ function Cards({allDogs}) {
     const indexLastDog = (currentPage) * dogsPerPage;
     const indexFirstDog = indexLastDog - dogsPerPage;
     const currentDogs = dogsList.slice(indexFirstDog, indexLastDog);
-    console.log(currentDogs);
+    // console.log(currentDogs);
 
     const handlePage = (pageNumber) => {
         setCurrentPage(pageNumber)

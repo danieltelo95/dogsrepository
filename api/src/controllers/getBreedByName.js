@@ -9,9 +9,11 @@ const getBreedByName = async (name) => {
 
   if (!lowerCaseName) throw Error('Por favor ingrese un nombre válido');
 
+  //hago pedido a la ap
   let apiResponse = await axios.get(`${URL}/search?q=${name}&api_key=${apiKey}`);
   let apiResults = apiResponse.data;
 
+  //extraigo la imagen de forma asincrona/paralela
   let dogImages = await Promise.all(apiResults.map(async (e) => {
     let imageId = e?.reference_image_id;
     if (imageId) {
@@ -20,9 +22,9 @@ const getBreedByName = async (name) => {
     }
     return null
   }));
-
+  
   console.log(dogImages);
-
+  //mapeo para mostrar la info que me interesa mostrar
   const dogsApi = apiResults.map((dog, index) => {
     return {
         id: dog.id,
@@ -35,9 +37,11 @@ const getBreedByName = async (name) => {
         
     }
 })
+    //busco en la base de datos
     const dbBreeds = await Dog.findAll({
       where: {
         name: {
+          //comparar sin importar si es mayus o minus
           [Op.iLike]: `%${lowerCaseName}%`,
         },
       },

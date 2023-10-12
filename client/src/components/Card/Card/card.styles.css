@@ -7,7 +7,7 @@
     padding: 25px;
     cursor: pointer;
     backface-visibility: hidden;
-    transform: translate3d(2);
+    transform: translate3d(2px, 0);
     transition: transform 0.20s ease-out;
 }
 
@@ -21,6 +21,6 @@
   }
 
   .card-link {
-    text-decoration: none; /* Remove underline */
-    color: #FADCF5; /* Set your desired text color */
+    text-decoration: none; 
+    color: #FADCF5;
   }
