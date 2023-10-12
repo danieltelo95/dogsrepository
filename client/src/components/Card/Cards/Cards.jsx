@@ -22,6 +22,12 @@ function Cards({allDogs}) {
         setDogList(allDogs)
     },[allDogs])
 
+    const totalPages = Math.ceil(dogsList.length / dogsPerPage)
+
+    const pageNumbers = []
+    for (let i =1; i<= totalPages; i++){
+        pageNumbers.push(i)
+    }
 
 
     return (
@@ -34,6 +40,19 @@ function Cards({allDogs}) {
             ))}
         </div>
         <hr className="transparent-hr"></hr>
+
+        <div>
+            {pageNumbers.map((number) => (
+                <button
+                    key={number}
+                    onClick={() => handlePage(number)}
+                    className={currentPage === number ? "active" : ""}
+                >
+                    {number}
+                </button>
+            ))}
+        </div>
+
         <button onClick={()=>handlePage(currentPage - 1)} 
             disabled={currentPage === 1}
         >
