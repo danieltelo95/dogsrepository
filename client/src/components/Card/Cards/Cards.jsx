@@ -46,7 +46,6 @@ function Cards({allDogs}) {
                 <button
                     key={number}
                     onClick={() => handlePage(number)}
-                    className={currentPage === number ? "active" : ""}
                 >
                     {number}
                 </button>
