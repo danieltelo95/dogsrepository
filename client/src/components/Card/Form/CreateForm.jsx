@@ -1,5 +1,6 @@
 import { useState } from "react"
 import axios from "axios"
+import { Link } from 'react-router-dom'
 
 import './form.styles.css'
 
@@ -67,6 +68,7 @@ const FormCreate = () => {
         {postDog &&
             <div>
                 <h2>Dog breed created succesfully</h2>
+                <button Link to ='/home'>Home</button>
             </div>
         }
             {create &&
@@ -74,7 +76,7 @@ const FormCreate = () => {
                     <form onSubmit={handleSubmit} >
                         <div>
                             <h2 className="form-title">Create a new dog breed</h2>
-                            <label className="form-label">Name:</label>
+                            <label className="form-label">Name*:</label>
                             <input className="form-input" name="name" value={input.name} onChange={handleChange}/>                
                         </div>
                         <div>
@@ -82,7 +84,7 @@ const FormCreate = () => {
                             <input className="form-input" name="image" value={input.image} onChange={handleChange}/>                
                         </div>
                         <div>
-                            <label className="form-label">Minimun Height:</label>
+                            <label className="form-label">Minimun Height*:</label>
                             <input className="form-input" name="minheight" value={input.minheight} onChange={handleChange}/>                
                         </div>
                         <div>
@@ -90,7 +92,7 @@ const FormCreate = () => {
                             <input className="form-input" name="maxheight" value={input.maxheight} onChange={handleChange}/>                
                         </div>
                         <div>
-                            <label className="form-label">Minimun Weight:</label>
+                            <label className="form-label">Minimun Weight*:</label>
                             <input className="form-input" name="minweight" value={input.minweight} onChange={handleChange}/>                
                         </div>
                         <div>
@@ -98,14 +100,16 @@ const FormCreate = () => {
                             <input className="form-input" name="maxweight" value={input.maxweight} onChange={handleChange}/>                
                         </div>
                         <div>
-                            <label className="form-label">Life span:</label>
+                            <label className="form-label">Life span*:</label>
                             <input className="form-input" name="life_span" value={input.life_span} onChange={handleChange}/>                
                         </div>
                         <div>
-                            <label className="form-label">Temperament:</label>
+                            <label className="form-label">Temperament*:</label>                            
                             <input className="form-input" name="temperament" value={input.temperament} onChange={handleChange}/>                
                         </div>
+                            <h2 className="form-label">* Campo requerido obligatorio</h2>
                         <button className="form-button" type="submit">Submit</button>
+                        <button Link to = '/home '>Home</button>
                     </form>
                 </div>
             }
