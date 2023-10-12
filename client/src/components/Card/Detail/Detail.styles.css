@@ -13,20 +13,35 @@
 .detail-card {
   width: 40%;
   max-height: 400px;
-  margin: 0 auto; /* Center the card horizontally */
+  margin: 0 auto; 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: #FADCF5;
   background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 3px;
+  border-radius: 10px;
   padding: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(5px);
   transition: background-color 0.3s ease;
 }
+.detail-card img {
+  margin-bottom: 10px; 
+  margin-top: 20px;
+}
 
+.detail-card button{
+  margin-bottom: 20px;
+}
+
+.detail-card h2 {
+  margin: 10px 0; 
+}
+
+.detail-card p {
+  margin: 10px 0; 
+}
 .detail-card:hover {
   background-color: rgba(255, 255, 255, 0.5);
   color: #1A1628;

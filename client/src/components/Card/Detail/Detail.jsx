@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import { useSelector } from "react-redux"
 import './Detail.styles.css'
@@ -17,6 +18,9 @@ const Detail = () => {
             <p>Temperaments:{dog.temperament} </p>
             <p>Lifespan:{dog.life_span}</p>
             <p>Origin:{dog.origin} </p>
+            <Link to='/home'>
+                <button>Volver al Home</button>
+            </Link>
         </div>
     )
 

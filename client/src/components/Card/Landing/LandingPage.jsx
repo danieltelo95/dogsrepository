@@ -6,7 +6,7 @@ export default function LandingPage () {
         <div>
             <h1>The Dog WebPage</h1>
             <Link to='/home'>
-                <button>Entrar papá </button>
+                <button>Entrar papá prueba </button>
             </Link>
         </div>
     )
